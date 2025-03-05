@@ -152,7 +152,11 @@ class BlurHashState extends State<BlurHash> {
   Widget buildBlurHashBackground() => FutureBuilder<ui.Image>(
         future: _image,
         builder: (ctx, snap) => snap.hasData
-            ? Image(image: UiImage(snap.data!), fit: widget.imageFit)
+            ? Image(
+                image: UiImage(snap.data!),
+                fit: widget.imageFit,
+                errorBuilder: widget.errorBuilder,
+              )
             : Container(color: widget.color),
       );
 }
